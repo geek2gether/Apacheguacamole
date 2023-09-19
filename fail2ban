@@ -1,0 +1,32 @@
+sudo nano /etc/fail2ban/jail.d/guacamole-auth.conf
+
+**Paste text below**
+
+[DEFAULT]
+banaction = cloudflare
+
+[guacamole-auth]
+enabled = true
+logpath = /var/log/tomcat*/catalina.out
+port = http,https
+bantime = 1d
+maxretry = 3
+
+
+
+sudo nano  /etc/fail2ban/filter.d/guacamole-auth.conf
+
+**Paste text below**
+
+[Definition]
+failregex = \bAuthentication attempt from \[<HOST>(?:,.*)?\] for user ".*" failed\.
+ignoreregex =
+
+
+sudo nano  /etc/fail2ban/action.d/cloudflare.conf
+
+**replace the two options below**
+
+cftoken =
+
+cfuser =

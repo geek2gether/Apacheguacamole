@@ -1,3 +1,7 @@
+Step 1: sudo apt install fail2ban
+
+Step 2:
+
 sudo nano /etc/fail2ban/jail.d/guacamole-auth.conf
 
 **Paste text below**
@@ -13,6 +17,7 @@ bantime = 1d
 maxretry = 3
 
 
+Step 3: 
 
 sudo nano  /etc/fail2ban/filter.d/guacamole-auth.conf
 
@@ -22,6 +27,11 @@ sudo nano  /etc/fail2ban/filter.d/guacamole-auth.conf
 failregex = \bAuthentication attempt from \[<HOST>(?:,.*)?\] for user ".*" failed\.
 ignoreregex =
 
+
+
+If using cloudflare continue with step 4 below
+
+Step 4: 
 
 sudo nano  /etc/fail2ban/action.d/cloudflare.conf
 

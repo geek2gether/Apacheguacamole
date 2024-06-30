@@ -4,7 +4,7 @@ Install MariaDB:
 
 Commands:
 
-- sudo apt instamm amriadb-server
+- sudo apt instamm mariadb-server
 
 Create guacamole Database:
 
@@ -14,6 +14,8 @@ Create guacamole Database:
 
 - quit
 
+Import Gucaamole Schema:
+
 - ls schema/
 
 - cat schema/*.sql | mysql -u root guacamole_db
@@ -21,6 +23,8 @@ Create guacamole Database:
 or 
 
 - cat schema/*.sql | mysql -u root -p guacamole_db (to enter password)
+
+Create User and Grant Privileges:
 
 - CREATE USER 'guacamole_user'@'%' IDENTIFIED BY 'verysecureuserpassword';
 

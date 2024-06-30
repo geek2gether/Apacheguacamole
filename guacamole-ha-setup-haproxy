@@ -1,4 +1,6 @@
-ha proxy conf:
+Apache guacamole HA Setup HAProxy:
+
+Front end and backend config:  
 
 frontend secureconnect_frontend
     bind 0.0.0.0:443 ssl crt /etc/letsencrypt/live/geek2gether.com/geek2gether.com.pem alpn h2,http/1.1
@@ -12,5 +14,5 @@ backend secureconnect_backend
     option forwardfor
     timeout tunnel 1h
     cookie SERVER insert indirect nocache
-    server guac1 45.79.132.110:443 check cookie guac1 check ssl verify none
-    server guac2 45.79.132.33:443 check cookie guac2 check ssl verify none
+    server guac1 <server1 ip>:443 check cookie guac1 check ssl verify none
+    server guac2 <server2 ip>:443 check cookie guac2 check ssl verify none

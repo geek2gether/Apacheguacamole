@@ -1,0 +1,36 @@
+Apache guacamole HA Setup MariaDB commands:
+
+Install MariaDB:
+
+Commands:
+
+- sudo apt instamm mariadb-server
+
+Create guacamole Database:
+
+- mysql
+
+- CREATE DATABASE guacamole_db;
+
+- quit
+
+Import Gucaamole Schema:
+
+- ls schema/
+
+- cat schema/*.sql | mysql -u root guacamole_db
+
+or 
+
+- cat schema/*.sql | mysql -u root -p guacamole_db (to enter password)
+
+Create User and Grant Privileges:
+
+- CREATE USER 'guacamole_user'@'%' IDENTIFIED BY 'verysecureuserpassword';
+
+- GRANT SELECT,INSERT,UPDATE,DELETE ON guacamole_db.* TO 'guacamole_user'@'%';
+
+
+- FLUSH PRIVILEGES;
+
+- quit
